@@ -1,0 +1,190 @@
+<?php
+namespace Jacoz\ItunesApi\Entities;
+
+class Track implements EntityInterface, \JsonSerializable
+{
+    /**
+     * @var integer
+     */
+    private $itunesId;
+
+    /**
+     * @var integer
+     */
+    private $artistId;
+
+    /**
+     * @var integer
+     */
+    private $albumId;
+
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $preview;
+
+    /**
+     * @var bool
+     */
+    private $explicit;
+
+    /**
+     * @var integer
+     */
+    private $trackNumber;
+
+    /**
+     * @var integer
+     */
+    private $length;
+
+    /**
+     * @return int
+     */
+    public function getItunesId()
+    {
+        return $this->itunesId;
+    }
+
+    /**
+     * @param int $itunesId
+     */
+    public function setItunesId($itunesId)
+    {
+        $this->itunesId = $itunesId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getArtistId()
+    {
+        return $this->artistId;
+    }
+
+    /**
+     * @param int $artistId
+     */
+    public function setArtistId($artistId)
+    {
+        $this->artistId = $artistId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAlbumId()
+    {
+        return $this->albumId;
+    }
+
+    /**
+     * @param int $albumId
+     */
+    public function setAlbumId($albumId)
+    {
+        $this->albumId = $albumId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPreview()
+    {
+        return $this->preview;
+    }
+
+    /**
+     * @param string $preview
+     */
+    public function setPreview($preview)
+    {
+        $this->preview = $preview;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isExplicit()
+    {
+        return $this->explicit;
+    }
+
+    /**
+     * @param boolean $explicit
+     */
+    public function setExplicit($explicit)
+    {
+        $this->explicit = $explicit;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTrackNumber()
+    {
+        return $this->trackNumber;
+    }
+
+    /**
+     * @param int $trackNumber
+     */
+    public function setTrackNumber($trackNumber)
+    {
+        $this->trackNumber = $trackNumber;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * @param int $length
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'itunes_id' => $this->getItunesId(),
+            'artist_id' => $this->getArtistId(),
+            'album_id' => $this->getAlbumId(),
+            'name' => $this->getName(),
+            'explicit' => $this->isExplicit(),
+            'track_number' => $this->getTrackNumber(),
+            'preview' => $this->getPreview(),
+            'length' => $this->getLength(),
+        ];
+    }
+}
