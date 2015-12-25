@@ -11,19 +11,19 @@ interface ProviderInterface
      * @param string $country
      * @return EntityInterface
      */
-    public function fetchById($id, $country);
+    public function fetchById($id, $country = self::DEFAULT_COUNTRY);
 
     /**
      * @param string $name
      * @param string $country
      * @return SearchResults
      */
-    public function fetchByName($name, $country);
+    public function fetchByName($name, $country = self::DEFAULT_COUNTRY);
 
     /**
      * @param string $name
      * @param string $country
      * @return EntityInterface
      */
-    public function fetchOneByName($name, $country);
+    public function fetchOneByName($name, $country = self::DEFAULT_COUNTRY);
 }
