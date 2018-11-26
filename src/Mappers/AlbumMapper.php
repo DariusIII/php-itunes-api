@@ -15,7 +15,9 @@ class AlbumMapper extends AbstractMapper
         $album->setItunesId($this->data->collectionId);
         $album->setArtistId($this->data->artistId);
         $album->setName($this->data->collectionName);
-        $album->setPublisher($this->data->copyright);
+        if (isset($this->data->copyright)) {
+            $album->setPublisher($this->data->copyright);
+        }
 
         if (isset($this->data->artworkUrl100)) {
             $album->setCover($this->data->artworkUrl100);
