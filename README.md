@@ -2,7 +2,7 @@
 iTunes Query System
 
 ### Requirements:
-- PHP >= 5.4
+- PHP >= 7.2
 
 ### Installation:
 
@@ -10,7 +10,7 @@ With [Composer](https://getcomposer.org/):
 ```json
 {
     "require": {
-        "jacoz/php-itunes-api": "dev-master"
+        "dariusiii/php-itunes-api": "dev-master"
     }
 }
 ```
@@ -23,6 +23,7 @@ use DariusIII\ItunesApi\iTunes;
 $artistsFinder = iTunes::load('artist');
 $albumsFinder = iTunes::load('album');
 $tracksFinder = iTunes::load('track');
+$moviesFinder = iTunes::load('movie');
 ```
 
 #### Finders' methods
@@ -47,6 +48,13 @@ Method | Return
 `fetchById( int $id [, string $country ] )` | `Track`
 `fetchByName( string $name [, string $country ] )` | `SearchResults`
 `fetchOneByName( int $id [, string $country ] )` | `Track`
+
+##### Movies Finder
+Method | Return
+--- | ---
+`fetchById( int $id [, string $country ] )` | `Movie`
+`fetchByName( string $name [, string $country ] )` | `SearchResults`
+`fetchOneByName( int $id [, string $country ] )` | `Movie`
 
 #### Entities
 
@@ -80,6 +88,20 @@ preview | string | URL to track's audio preview
 explicit | bool | -
 trackNumber | integer | -
 length | integer | Track's lenght in milliseconds
+
+##### Movie Entity
+Attribute | Type | Description
+--- | --- | ---
+itunesId | integer | -
+artistId | integer | iTunes artist's ID
+name | string | -
+cover | string | URL to movie's cover
+storeUrl | string | URL to movie's page
+trailer | string | URL to movie's trailer
+explicit | bool | -
+description | string | Movie description
+genre | string | Movie genre
+
 
 #### Collections
 
