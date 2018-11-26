@@ -1,9 +1,9 @@
 <?php
-namespace Jacoz\ItunesApi\Providers;
+namespace DariusIII\ItunesApi\Providers;
 
-use Jacoz\ItunesApi\Exceptions\InvalidEndpointException;
-use Jacoz\ItunesApi\Exceptions\InvalidProviderException;
-use Jacoz\ItunesApi\Utils\Country;
+use DariusIII\ItunesApi\Exceptions\InvalidEndpointException;
+use DariusIII\ItunesApi\Exceptions\InvalidProviderException;
+use DariusIII\ItunesApi\Utils\Country;
 
 abstract class AbstractProvider implements ProviderInterface
 {

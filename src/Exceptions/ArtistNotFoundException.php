@@ -1,5 +1,5 @@
 <?php
-namespace Jacoz\ItunesApi\Exceptions;
+namespace DariusIII\ItunesApi\Exceptions;
 
 class ArtistNotFoundException extends ItunesGenericException
 {

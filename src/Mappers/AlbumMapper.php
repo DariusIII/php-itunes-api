@@ -1,7 +1,7 @@
 <?php
-namespace Jacoz\ItunesApi\Mappers;
+namespace DariusIII\ItunesApi\Mappers;
 
-use Jacoz\ItunesApi\Entities\Album;
+use DariusIII\ItunesApi\Entities\Album;
 
 class AlbumMapper extends AbstractMapper
 {

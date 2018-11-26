@@ -1,7 +1,7 @@
 <?php
-use Jacoz\ItunesApi\Mappers\ArtistMapper;
-use Jacoz\ItunesApi\Mappers\AlbumMapper;
-use Jacoz\ItunesApi\Mappers\TrackMapper;
+use DariusIII\ItunesApi\Mappers\ArtistMapper;
+use DariusIII\ItunesApi\Mappers\AlbumMapper;
+use DariusIII\ItunesApi\Mappers\TrackMapper;
 
 class MapperTest extends PHPUnit_Framework_TestCase
 {

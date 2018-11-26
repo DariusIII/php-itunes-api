@@ -1,6 +1,6 @@
 <?php
-use Jacoz\ItunesApi\Utils\Collection;
-use Jacoz\ItunesApi\Entities\Artist;
+use DariusIII\ItunesApi\Utils\Collection;
+use DariusIII\ItunesApi\Entities\Artist;
 
 abstract class AbstractCollectionTest extends PHPUnit_Framework_TestCase
 {

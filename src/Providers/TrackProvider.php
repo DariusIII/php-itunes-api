@@ -1,11 +1,11 @@
 <?php
-namespace Jacoz\ItunesApi\Providers;
+namespace DariusIII\ItunesApi\Providers;
 
-use Jacoz\ItunesApi\Entities\Track;
-use Jacoz\ItunesApi\Exceptions\TrackNotFoundException;
-use Jacoz\ItunesApi\Exceptions\SearchNoResultsException;
-use Jacoz\ItunesApi\Mappers\TrackMapper;
-use Jacoz\ItunesApi\Utils\SearchResults;
+use DariusIII\ItunesApi\Entities\Track;
+use DariusIII\ItunesApi\Exceptions\TrackNotFoundException;
+use DariusIII\ItunesApi\Exceptions\SearchNoResultsException;
+use DariusIII\ItunesApi\Mappers\TrackMapper;
+use DariusIII\ItunesApi\Utils\SearchResults;
 
 class TrackProvider extends AbstractProvider
 {

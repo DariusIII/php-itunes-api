@@ -1,13 +1,13 @@
 <?php
-namespace Jacoz\ItunesApi\Providers;
+namespace DariusIII\ItunesApi\Providers;
 
-use Jacoz\ItunesApi\Entities\Artist;
-use Jacoz\ItunesApi\Exceptions\ArtistNotFoundException;
-use Jacoz\ItunesApi\Exceptions\SearchNoResultsException;
-use Jacoz\ItunesApi\Mappers\AlbumMapper;
-use Jacoz\ItunesApi\Mappers\ArtistMapper;
-use Jacoz\ItunesApi\Utils\Collection;
-use Jacoz\ItunesApi\Utils\SearchResults;
+use DariusIII\ItunesApi\Entities\Artist;
+use DariusIII\ItunesApi\Exceptions\ArtistNotFoundException;
+use DariusIII\ItunesApi\Exceptions\SearchNoResultsException;
+use DariusIII\ItunesApi\Mappers\AlbumMapper;
+use DariusIII\ItunesApi\Mappers\ArtistMapper;
+use DariusIII\ItunesApi\Utils\Collection;
+use DariusIII\ItunesApi\Utils\SearchResults;
 
 class ArtistProvider extends AbstractProvider
 {

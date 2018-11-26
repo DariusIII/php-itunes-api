@@ -1,5 +1,5 @@
 <?php
-use Jacoz\ItunesApi\Providers\AbstractProvider;
+use DariusIII\ItunesApi\Providers\AbstractProvider;
 
 class AbstractProviderTest extends PHPUnit_Framework_TestCase
 {

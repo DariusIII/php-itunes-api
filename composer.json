@@ -1,24 +1,27 @@
 {
-  "name": "jacoz/php-itunes-api",
+  "name": "dariusiii/php-itunes-api",
   "description": "Query iTunes API System",
-  "keywords": ["apple", "itunes", "api", "query", "music"],
-  "homepage": "https://github.com/jacoz/php-itunes-api",
+  "keywords": ["apple", "itunes", "api", "query", "music", "movies"],
+  "homepage": "https://github.com/DariusIII/php-itunes-api",
   "license": "Apache License 2.0",
   "authors": [
     {
       "name": "Jacopo Andrea Nuzzi",
       "email": "jacoz@php.net"
+    },
+    {
+      "name": "DariusIII"
     }
   ],
   "require": {
-    "php": ">=5.4.0"
+    "php": ">=7.2.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "~4.7"
+    "phpunit/phpunit": "^7.4.0"
   },
   "autoload": {
     "psr-4": {
-      "Jacoz\\ItunesApi\\": "src/"
+      "DariusIII\\ItunesApi\\": "src/"
     }
   }
 }

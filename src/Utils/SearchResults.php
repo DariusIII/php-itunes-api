@@ -1,5 +1,5 @@
 <?php
-namespace Jacoz\ItunesApi\Utils;
+namespace DariusIII\ItunesApi\Utils;
 
 class SearchResults extends Collection
 {

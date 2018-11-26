@@ -1,5 +1,5 @@
 <?php
-namespace Jacoz\ItunesApi\Entities;
+namespace DariusIII\ItunesApi\Entities;
 
 class Track implements EntityInterface, \JsonSerializable
 {

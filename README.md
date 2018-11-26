@@ -18,7 +18,7 @@ With [Composer](https://getcomposer.org/):
 You can search artists, albums and tracks (by now)
 ```php
 <?php
-use Jacoz\ItunesApi\iTunes;
+use DariusIII\ItunesApi\iTunes;
 
 $artistsFinder = iTunes::load('artist');
 $albumsFinder = iTunes::load('album');

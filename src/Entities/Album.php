@@ -1,7 +1,7 @@
 <?php
-namespace Jacoz\ItunesApi\Entities;
+namespace DariusIII\ItunesApi\Entities;
 
-use Jacoz\ItunesApi\Utils\Collection;
+use DariusIII\ItunesApi\Utils\Collection;
 
 class Album implements EntityInterface, \JsonSerializable
 {

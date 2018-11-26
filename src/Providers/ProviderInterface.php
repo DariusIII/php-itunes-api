@@ -1,8 +1,8 @@
 <?php
-namespace Jacoz\ItunesApi\Providers;
+namespace DariusIII\ItunesApi\Providers;
 
-use Jacoz\ItunesApi\Entities\EntityInterface;
-use Jacoz\ItunesApi\Utils\SearchResults;
+use DariusIII\ItunesApi\Entities\EntityInterface;
+use DariusIII\ItunesApi\Utils\SearchResults;
 
 interface ProviderInterface
 {

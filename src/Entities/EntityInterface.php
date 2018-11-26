@@ -1,5 +1,5 @@
 <?php
-namespace Jacoz\ItunesApi\Entities;
+namespace DariusIII\ItunesApi\Entities;
 
 interface EntityInterface
 {

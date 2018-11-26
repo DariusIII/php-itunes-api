@@ -1,7 +1,7 @@
 <?php
-namespace Jacoz\ItunesApi\Mappers;
+namespace DariusIII\ItunesApi\Mappers;
 
-use Jacoz\ItunesApi\Entities\Track;
+use DariusIII\ItunesApi\Entities\Track;
 
 class TrackMapper extends AbstractMapper
 {

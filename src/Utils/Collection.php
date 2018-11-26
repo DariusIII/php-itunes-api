@@ -1,7 +1,7 @@
 <?php
-namespace Jacoz\ItunesApi\Utils;
+namespace DariusIII\ItunesApi\Utils;
 
-use Jacoz\ItunesApi\Entities\EntityInterface;
+use DariusIII\ItunesApi\Entities\EntityInterface;
 
 class Collection extends \ArrayObject implements \JsonSerializable
 {

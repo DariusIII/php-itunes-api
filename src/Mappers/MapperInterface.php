@@ -1,5 +1,5 @@
 <?php
-namespace Jacoz\ItunesApi\Mappers;
+namespace DariusIII\ItunesApi\Mappers;
 
 interface MapperInterface
 {

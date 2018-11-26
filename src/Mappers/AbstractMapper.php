@@ -1,7 +1,7 @@
 <?php
-namespace Jacoz\ItunesApi\Mappers;
+namespace DariusIII\ItunesApi\Mappers;
 
-use Jacoz\ItunesApi\Entities\EntityInterface;
+use DariusIII\ItunesApi\Entities\EntityInterface;
 
 abstract class AbstractMapper
 {

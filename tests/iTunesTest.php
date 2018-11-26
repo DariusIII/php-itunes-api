@@ -1,5 +1,5 @@
 <?php
-use Jacoz\ItunesApi\iTunes;
+use DariusIII\ItunesApi\iTunes;
 
 class iTunesTest extends PHPUnit_Framework_TestCase
 {

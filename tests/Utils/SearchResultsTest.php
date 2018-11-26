@@ -1,5 +1,5 @@
 <?php
-use Jacoz\ItunesApi\Utils\SearchResults;
+use DariusIII\ItunesApi\Utils\SearchResults;
 
 class SearchResultsTest extends AbstractCollectionTest
 {

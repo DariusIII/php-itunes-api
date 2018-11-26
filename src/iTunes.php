@@ -1,9 +1,9 @@
 <?php
-namespace Jacoz\ItunesApi;
+namespace DariusIII\ItunesApi;
 
-use Jacoz\ItunesApi\Exceptions\InvalidProviderException;
-use Jacoz\ItunesApi\Providers\AbstractProvider;
-use Jacoz\ItunesApi\Providers\ProviderInterface;
+use DariusIII\ItunesApi\Exceptions\InvalidProviderException;
+use DariusIII\ItunesApi\Providers\AbstractProvider;
+use DariusIII\ItunesApi\Providers\ProviderInterface;
 
 class iTunes
 {

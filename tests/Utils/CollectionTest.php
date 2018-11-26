@@ -1,5 +1,5 @@
 <?php
-use Jacoz\ItunesApi\Utils\Collection;
+use DariusIII\ItunesApi\Utils\Collection;
 
 class CollectionTest extends AbstractCollectionTest
 {
