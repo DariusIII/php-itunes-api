@@ -19,6 +19,7 @@ class AlbumMapper extends AbstractMapper
         if (isset($this->data->artworkUrl100)) {
             $album->setCover($this->data->artworkUrl100);
         }
+        $album->setStoreUrl($this->data->collectionViewUrl);
 
         $album->setExplicit($this->data->collectionExplicitness === self::IDENTIFER_EXPLICIT);
         $album->setReleaseDate(new \DateTime($this->data->releaseDate));
