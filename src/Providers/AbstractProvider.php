@@ -15,7 +15,7 @@ abstract class AbstractProvider implements ProviderInterface
     protected const IDENTIFIER_ALBUM = 'collection';
 
     protected const IDENTIFIER_TRACK = 'track';
-	
+
 	protected const IDENTIFIER_MOVIE = 'movie';
 
     private static $providers = [];
@@ -43,36 +43,30 @@ abstract class AbstractProvider implements ProviderInterface
     protected function __construct()
     {
     }
-	
-	/**
-	 * @param $params
-	 *
-	 * @return bool|object
-	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
-	 */
+
+    /**
+     * @param $params
+     * @return bool|mixed
+     */
     protected function search($params)
     {
         return $this->fetchData(self::URL_SEARCH, $params);
     }
-	
-	/**
-	 * @param $params
-	 *
-	 * @return bool|object
-	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
-	 */
+
+    /**
+     * @param $params
+     * @return bool|mixed
+     */
     protected function lookup($params)
     {
         return $this->fetchData(self::URL_LOOKUP, $params);
     }
-	
-	/**
-	 * @param string $url
-	 * @param null $params
-	 *
-	 * @return bool
-	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
-	 */
+
+    /**
+     * @param $url
+     * @param null $params
+     * @return bool|mixed
+     */
     private function fetchData($url, $params = null)
     {
         if ($params) {
@@ -84,7 +78,7 @@ abstract class AbstractProvider implements ProviderInterface
         }
 
         if (($data = @file_get_contents($url)) === false) {
-            throw new InvalidEndpointException('Invalid endpoint used');
+            return false;
         }
         $data = json_decode($data);
 
