@@ -2,11 +2,14 @@
 namespace DariusIII\ItunesApi\Providers;
 
 use DariusIII\ItunesApi\Entities\EntityInterface;
+use DariusIII\ItunesApi\Utils\Country;
 use DariusIII\ItunesApi\Utils\SearchResults;
 
 interface ProviderInterface
 {
-    /**
+	public const DEFAULT_COUNTRY = Country::US;
+	
+	/**
      * @param string $id
      * @param string $country
      * @return EntityInterface

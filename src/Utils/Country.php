@@ -3,15 +3,15 @@ namespace DariusIII\ItunesApi\Utils;
 
 class Country
 {
-    const GB = 'gb';
+    public const GB = 'gb';
 
-    const DE = 'de';
+    public const DE = 'de';
 
-    const ES = 'es';
+    public const ES = 'es';
 
-    const FR = 'fr';
+    public const FR = 'fr';
 
-    const IT = 'it';
+    public const IT = 'it';
 
-    const US = 'us';
+    public const US = 'us';
 }

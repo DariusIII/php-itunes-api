@@ -1,4 +1,9 @@
 <?php
+
+use DariusIII\ItunesApi\Providers\TrackProvider;
+use DariusIII\ItunesApi\Providers\AlbumProvider;
+use DariusIII\ItunesApi\Providers\ArtistProvider;
+use DariusIII\ItunesApi\Providers\ProviderInterface;
 use DariusIII\ItunesApi\Providers\AbstractProvider;
 
 class AbstractProviderTest extends PHPUnit_Framework_TestCase
@@ -19,15 +24,15 @@ class AbstractProviderTest extends PHPUnit_Framework_TestCase
         $obj = AbstractProvider::factory($provider);
 
         $this->assertInstanceOf($class, $obj);
-        $this->assertInstanceOf('Jacoz\\ItunesApi\\Providers\\ProviderInterface', $obj);
+        $this->assertInstanceOf(ProviderInterface::class, $obj);
     }
 
     public function getValidProviders()
     {
         return [
-            ['artist', 'Jacoz\\ItunesApi\\Providers\\ArtistProvider'],
-            ['album', 'Jacoz\\ItunesApi\\Providers\\AlbumProvider'],
-            ['track', 'Jacoz\\ItunesApi\\Providers\\TrackProvider'],
+            ['artist', ArtistProvider::class],
+            ['album', AlbumProvider::class],
+            ['track', TrackProvider::class],
         ];
     }
 }

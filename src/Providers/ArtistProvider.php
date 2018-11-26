@@ -11,19 +11,21 @@ use DariusIII\ItunesApi\Utils\SearchResults;
 
 class ArtistProvider extends AbstractProvider
 {
-    const ARTIST_QUERY = 'entity=musicArtist&id=%d&country=%s';
+    protected const ARTIST_QUERY = 'entity=musicArtist&id=%d&country=%s';
 
-    const ARTIST_ALBUMS_QUERY = 'entity=album&id=%d&country=%s';
+    protected const ARTIST_ALBUMS_QUERY = 'entity=album&id=%d&country=%s';
 
-    const ARTIST_SEARCH_QUERY = 'entity=musicArtist&media=music&term=%s&country=%s';
-
-    /**
-     * @param integer $id
-     * @param string $country
-     * @param bool $includeAlbums
-     * @return Artist|null
-     * @throws ArtistNotFoundException
-     */
+    protected const ARTIST_SEARCH_QUERY = 'entity=musicArtist&media=music&term=%s&country=%s';
+	
+	/**
+	 * @param string $id
+	 * @param string $country
+	 * @param null   $includeAlbums
+	 *
+	 * @return \DariusIII\ItunesApi\Entities\Artist|\DariusIII\ItunesApi\Entities\EntityInterface|null
+	 * @throws \DariusIII\ItunesApi\Exceptions\ArtistNotFoundException
+	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
+	 */
     public function fetchById($id, $country = self::DEFAULT_COUNTRY, $includeAlbums = null)
     {
         $results = $this->lookup(sprintf($includeAlbums ? self::ARTIST_ALBUMS_QUERY : self::ARTIST_QUERY, (int)$id, $country));
@@ -47,21 +49,21 @@ class ArtistProvider extends AbstractProvider
             }
         }
 
-        if ($artist) {
-            if (!empty($albums)) {
-                $artist->setAlbums(new Collection($albums));
-            }
+        if ($artist && !empty($albums)) {
+            $artist->setAlbums(new Collection($albums));
         }
 
         return $artist;
     }
-
-    /**
-     * @param string $name
-     * @param string $country
-     * @return Artist[]
-     * @throws SearchNoResultsException
-     */
+	
+	/**
+	 * @param string $name
+	 * @param string $country
+	 *
+	 * @return \DariusIII\ItunesApi\Utils\SearchResults
+	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
+	 * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
+	 */
     public function fetchByName($name, $country = self::DEFAULT_COUNTRY)
     {
         $results = $this->search(sprintf(self::ARTIST_SEARCH_QUERY, urlencode($name), $country));
@@ -76,15 +78,17 @@ class ArtistProvider extends AbstractProvider
 
         return new SearchResults($albums);
     }
-
-    /**
-     * @param string $name
-     * @param string $country
-     * @param bool $includeAlbums
-     * @return Artist|null
-     * @throws ArtistNotFoundException
-     * @throws SearchNoResultsException
-     */
+	
+	/**
+	 * @param string $name
+	 * @param string $country
+	 * @param null   $includeAlbums
+	 *
+	 * @return \DariusIII\ItunesApi\Entities\Artist|\DariusIII\ItunesApi\Entities\EntityInterface|mixed|null
+	 * @throws \DariusIII\ItunesApi\Exceptions\ArtistNotFoundException
+	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
+	 * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
+	 */
     public function fetchOneByName($name, $country = self::DEFAULT_COUNTRY, $includeAlbums = null)
     {
         /** @var Artist[] $albums */

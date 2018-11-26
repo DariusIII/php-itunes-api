@@ -23,6 +23,7 @@ class TrackMapper extends AbstractMapper
         }
 
         $track->setTrackNumber($this->data->trackNumber);
+        $track->setGenre($this->data->primaryGenreName);
 
         return $track;
     }

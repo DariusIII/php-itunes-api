@@ -42,6 +42,11 @@ class Track implements EntityInterface, \JsonSerializable
      * @var integer
      */
     private $length;
+    
+    /**
+     * @var string
+     */
+    private $genre;
 
     /**
      * @return int
@@ -170,6 +175,22 @@ class Track implements EntityInterface, \JsonSerializable
     {
         $this->length = $length;
     }
+	
+	/**
+	 * @return string
+	 */
+	public function getGenre()
+	{
+		return $this->genre;
+	}
+	
+	/**
+	 * @param int $genre
+	 */
+	public function setGenre($genre)
+	{
+		$this->genre = $genre;
+	}
 
     /**
      * @return array
@@ -185,6 +206,7 @@ class Track implements EntityInterface, \JsonSerializable
             'track_number' => $this->getTrackNumber(),
             'preview' => $this->getPreview(),
             'length' => $this->getLength(),
+	        'genre' => $this->getGenre(),
         ];
     }
 }

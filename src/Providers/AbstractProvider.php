@@ -7,17 +7,17 @@ use DariusIII\ItunesApi\Utils\Country;
 
 abstract class AbstractProvider implements ProviderInterface
 {
-    const URL_SEARCH = 'https://itunes.apple.com/search';
+    protected const URL_SEARCH = 'https://itunes.apple.com/search';
 
-    const URL_LOOKUP = 'https://itunes.apple.com/lookup';
+    protected const URL_LOOKUP = 'https://itunes.apple.com/lookup';
 
-    const DEFAULT_COUNTRY = Country::US;
+    protected const IDENTIFIER_ARTIST = 'artist';
 
-    const IDENTIFIER_ARTIST = 'artist';
+    protected const IDENTIFIER_ALBUM = 'collection';
 
-    const IDENTIFIER_ALBUM = 'collection';
-
-    const IDENTIFIER_TRACK = 'track';
+    protected const IDENTIFIER_TRACK = 'track';
+	
+	protected const IDENTIFIER_MOVIE = 'movie';
 
     private static $providers = [];
 
@@ -29,7 +29,7 @@ abstract class AbstractProvider implements ProviderInterface
     public static function factory($provider)
     {
         if (!isset(self::$providers[$provider])) {
-            $providerClass = '\\Jacoz\\ItunesApi\\Providers\\' . ucfirst($provider) . 'Provider';
+            $providerClass = '\\DariusIII\\ItunesApi\\Providers\\' . ucfirst($provider) . 'Provider';
 
             if (!class_exists($providerClass)) {
                 throw new InvalidProviderException($provider);
@@ -44,43 +44,48 @@ abstract class AbstractProvider implements ProviderInterface
     protected function __construct()
     {
     }
-
-    /**
-     * @param string|array $params
-     * @return array|bool
-     */
+	
+	/**
+	 * @param $params
+	 *
+	 * @return bool|object
+	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
+	 */
     protected function search($params)
     {
         return $this->fetchData(self::URL_SEARCH, $params);
     }
-
-    /**
-     * @param string|array $params
-     * @return array|bool
-     */
+	
+	/**
+	 * @param $params
+	 *
+	 * @return bool|object
+	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
+	 */
     protected function lookup($params)
     {
         return $this->fetchData(self::URL_LOOKUP, $params);
     }
-
-    /**
-     * @param string $url
-     * @param string|array|null $params
-     * @return object|bool
-     * @throws InvalidEndpointException
-     */
+	
+	/**
+	 * @param string $url
+	 * @param null $params
+	 *
+	 * @return bool
+	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
+	 */
     private function fetchData($url, $params = null)
     {
         if ($params) {
-            if (is_array($params)) {
+            if (\is_array($params)) {
                 $url .= '?' . http_build_query($params);
-            } elseif (is_string($params)) {
+            } elseif (\is_string($params)) {
                 $url .= '?' . $params;
             }
         }
 
         if (($data = @file_get_contents($url)) === false) {
-            throw new InvalidEndpointException();
+            throw new InvalidEndpointException('Invalid endpoint used');
         }
         $data = json_decode($data);
 

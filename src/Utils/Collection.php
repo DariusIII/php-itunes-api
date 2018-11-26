@@ -34,7 +34,7 @@ class Collection extends \ArrayObject implements \JsonSerializable
      */
     public function last()
     {
-        return $this[($this->count() - 1)];
+        return $this[$this->count() - 1];
     }
 
     /**
@@ -77,7 +77,7 @@ class Collection extends \ArrayObject implements \JsonSerializable
             $a = $a->{'get' . ucfirst($attribute)}();
             $b = $b->{'get' . ucfirst($attribute)}();
 
-            if ($a == $b) {
+            if ($a === $b) {
                 return 0;
             }
             return (($direction === SORT_ASC && $a < $b) || ($direction === SORT_DESC && $a > $b))

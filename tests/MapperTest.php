@@ -37,7 +37,7 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testMapper($obj, $class)
     {
         $this->assertInstanceOf($class, $obj);
-        $this->assertInstanceOf('Jacoz\\ItunesApi\\Entities\\EntityInterface', $obj);
+        $this->assertInstanceOf('DariusIII\\ItunesApi\\Entities\\EntityInterface', $obj);
     }
 
     public function getMappers()

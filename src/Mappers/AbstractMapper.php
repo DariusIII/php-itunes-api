@@ -5,7 +5,7 @@ use DariusIII\ItunesApi\Entities\EntityInterface;
 
 abstract class AbstractMapper
 {
-    const IDENTIFER_EXPLICIT = 'explicit';
+    protected const IDENTIFER_EXPLICIT = 'explicit';
 
     /**
      * @var object
@@ -18,9 +18,7 @@ abstract class AbstractMapper
      */
     final public static function map($data)
     {
-        $mapper = new static($data);
-
-        return $mapper->getObject();
+	    return (new static($data))->getObject();
     }
 
     /**
