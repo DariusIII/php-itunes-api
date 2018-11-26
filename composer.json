@@ -3,7 +3,7 @@
   "description": "Query iTunes API System",
   "keywords": ["apple", "itunes", "api", "query", "music", "movies"],
   "homepage": "https://github.com/DariusIII/php-itunes-api",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Jacopo Andrea Nuzzi",
