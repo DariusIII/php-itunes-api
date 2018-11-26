@@ -51,6 +51,11 @@ class Album implements EntityInterface, \JsonSerializable
 	private $storeUrl;
 	
 	/**
+	 * @var string
+	 */
+	private $publisher;
+	
+	/**
      * @return int
      */
     public function getItunesId()
@@ -193,6 +198,22 @@ class Album implements EntityInterface, \JsonSerializable
 	{
 		$this->storeUrl = $storeUrl;
 	}
+	
+	/**
+	 * @return string
+	 */
+	public function getPublisher()
+	{
+		return $this->publisher;
+	}
+	
+	/**
+	 * @param $publisher
+	 */
+	public function setPublisher($publisher)
+	{
+		$this->publisher = $publisher;
+	}
 
     /**
      * @return array
@@ -209,6 +230,7 @@ class Album implements EntityInterface, \JsonSerializable
             'tracks_count' => $this->getTracksCount(),
             'release_date' => $this->getReleaseDate()->format('Y-m-d H:i:s'),
             'tracks' => $this->getTracks(),
+	        'publisher' => $this->getPublisher(),
         ];
     }
 }
