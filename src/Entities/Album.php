@@ -156,10 +156,10 @@ class Album implements EntityInterface, \JsonSerializable
     {
         $this->releaseDate = $releaseDate;
     }
-
-    /**
-     * @return Collection
-     */
+	
+	/**
+	 * @return \DariusIII\ItunesApi\Utils\Collection[]
+	 */
     public function getTracks()
     {
         return $this->tracks;

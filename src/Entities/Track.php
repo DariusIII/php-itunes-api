@@ -185,7 +185,7 @@ class Track implements EntityInterface, \JsonSerializable
 	}
 	
 	/**
-	 * @param int $genre
+	 * @param string $genre
 	 */
 	public function setGenre($genre)
 	{

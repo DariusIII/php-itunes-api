@@ -3,7 +3,6 @@ namespace DariusIII\ItunesApi\Providers;
 
 use DariusIII\ItunesApi\Exceptions\InvalidEndpointException;
 use DariusIII\ItunesApi\Exceptions\InvalidProviderException;
-use DariusIII\ItunesApi\Utils\Country;
 
 abstract class AbstractProvider implements ProviderInterface
 {

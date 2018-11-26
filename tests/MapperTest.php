@@ -1,4 +1,9 @@
 <?php
+
+use DariusIII\ItunesApi\Entities\Track;
+use DariusIII\ItunesApi\Entities\Album;
+use DariusIII\ItunesApi\Entities\Artist;
+use DariusIII\ItunesApi\Entities\EntityInterface;
 use DariusIII\ItunesApi\Mappers\ArtistMapper;
 use DariusIII\ItunesApi\Mappers\AlbumMapper;
 use DariusIII\ItunesApi\Mappers\TrackMapper;
@@ -37,15 +42,15 @@ class MapperTest extends PHPUnit_Framework_TestCase
     public function testMapper($obj, $class)
     {
         $this->assertInstanceOf($class, $obj);
-        $this->assertInstanceOf('DariusIII\\ItunesApi\\Entities\\EntityInterface', $obj);
+        $this->assertInstanceOf(EntityInterface::class, $obj);
     }
 
     public function getMappers()
     {
         return [
-            [ArtistMapper::map($this->getDataObject('artist')), 'Jacoz\ItunesApi\Entities\Artist'],
-            [AlbumMapper::map($this->getDataObject('album')), 'Jacoz\ItunesApi\Entities\Album'],
-            [TrackMapper::map($this->getDataObject('track')), 'Jacoz\ItunesApi\Entities\Track'],
+            [ArtistMapper::map($this->getDataObject('artist')), Artist::class],
+            [AlbumMapper::map($this->getDataObject('album')), Album::class],
+            [TrackMapper::map($this->getDataObject('track')), Track::class],
         ];
     }
 
