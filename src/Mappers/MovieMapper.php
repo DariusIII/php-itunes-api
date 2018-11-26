@@ -13,7 +13,7 @@ class MovieMapper extends AbstractMapper
 	{
 		$movie = new Movie();
 		$movie->setItunesId($this->data->collectionId);
-		$movie->setArtistId($this->data->artistId);
+		$movie->setArtistId($this->data->collectionArtistId);
 		$movie->setName($this->data->collectionName);
 		
 		if (isset($this->data->artworkUrl100)) {
