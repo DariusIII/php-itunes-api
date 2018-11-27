@@ -21,7 +21,9 @@ class MovieMapper extends AbstractMapper
             $movie->setCover($this->data->artworkUrl100);
         }
         $movie->setStoreUrl($this->data->collectionViewUrl);
-        $movie->setTrailerUrl($this->data->previewUrl);
+        if (isset($this->data->previewUrl)) {
+            $movie->setTrailerUrl($this->data->previewUrl);
+        }
 
         $movie->setExplicit($this->data->collectionExplicitness === self::IDENTIFER_EXPLICIT);
         $movie->setReleaseDate(new \DateTime($this->data->releaseDate));
