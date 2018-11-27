@@ -12,14 +12,13 @@ class TrackProvider extends AbstractProvider
     protected const TRACK_QUERY = 'entity=song&id=%d&country=%s';
 
     protected const TRACK_SEARCH_QUERY = 'entity=song&media=music&term=%s&country=%s';
-	
+
 	/**
 	 * @param string $id
 	 * @param string $country
 	 *
 	 * @return \DariusIII\ItunesApi\Entities\EntityInterface
-	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
-	 * @throws \DariusIII\ItunesApi\Exceptions\TrackNotFoundException
+     * @throws \DariusIII\ItunesApi\Exceptions\TrackNotFoundException
 	 */
     public function fetchById($id, $country = self::DEFAULT_COUNTRY)
     {
@@ -27,17 +26,16 @@ class TrackProvider extends AbstractProvider
         if ($results === false) {
             throw new TrackNotFoundException($id);
         }
-	
+
 	    return TrackMapper::map($results[0]);
     }
-	
+
 	/**
 	 * @param string $name
 	 * @param string $country
 	 *
 	 * @return \DariusIII\ItunesApi\Utils\SearchResults
-	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
-	 * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
+     * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
 	 */
     public function fetchByName($name, $country = self::DEFAULT_COUNTRY)
     {
@@ -53,14 +51,13 @@ class TrackProvider extends AbstractProvider
 
         return new SearchResults($albums);
     }
-	
+
 	/**
 	 * @param string $name
 	 * @param string $country
 	 *
 	 * @return \DariusIII\ItunesApi\Entities\EntityInterface|\DariusIII\ItunesApi\Entities\Track
-	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
-	 * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
+     * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
 	 */
     public function fetchOneByName($name, $country = self::DEFAULT_COUNTRY)
     {

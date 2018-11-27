@@ -1,7 +1,6 @@
 <?php
 namespace DariusIII\ItunesApi\Providers;
 
-use DariusIII\ItunesApi\Exceptions\InvalidEndpointException;
 use DariusIII\ItunesApi\Exceptions\InvalidProviderException;
 
 abstract class AbstractProvider implements ProviderInterface
@@ -16,7 +15,7 @@ abstract class AbstractProvider implements ProviderInterface
 
     protected const IDENTIFIER_TRACK = 'track';
 
-	protected const IDENTIFIER_MOVIE = 'movie';
+    protected const IDENTIFIER_MOVIE = 'movie';
 
     private static $providers = [];
 
