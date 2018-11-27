@@ -18,6 +18,8 @@ abstract class AbstractProvider implements ProviderInterface
 
     protected const IDENTIFIER_MOVIE = 'movie';
 
+    protected const IDENTIFIER_EBOOK = 'ebook';
+
     private static $providers = [];
 
     /**
