@@ -30,7 +30,6 @@ class EbookMapper extends AbstractMapper
             $ebook->setStoreUrl($this->data->trackViewUrl);
         }
 
-        $ebook->setExplicit($this->data->collectionExplicitness === self::IDENTIFER_EXPLICIT);
         $ebook->setReleaseDate(new \DateTime($this->data->releaseDate));
         $ebook->setDescription($this->data->description);
         $ebook->setGenre($this->data->genres);

@@ -226,7 +226,6 @@ class Ebook implements EntityInterface, \JsonSerializable
             'author' => $this->getAuthor(),
             'cover' => $this->getCover(),
             'store_url' => $this->getStoreUrl(),
-            'explicit' => $this->isExplicit(),
             'release_date' => $this->getReleaseDate()->format('Y-m-d H:i:s'),
             'description' => $this->getDescription(),
             'genre' => $this->getGenre(),
