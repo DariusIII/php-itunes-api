@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Mappers;
 
 use DariusIII\ItunesApi\Entities\Artist;

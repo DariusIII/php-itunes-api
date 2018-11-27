@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Providers;
 
 use DariusIII\ItunesApi\Entities\Album;
@@ -17,17 +18,17 @@ class AlbumProvider extends AbstractProvider
 
     protected const ALBUM_SEARCH_QUERY = 'entity=album&media=music&term=%s&country=%s';
 
-	/**
-	 * @param string $id
-	 * @param string $country
-	 * @param null   $includeTracks
-	 *
-	 * @return \DariusIII\ItunesApi\Entities\Album|\DariusIII\ItunesApi\Entities\EntityInterface|null
-	 * @throws \DariusIII\ItunesApi\Exceptions\AlbumNotFoundException
+    /**
+     * @param string $id
+     * @param string $country
+     * @param null   $includeTracks
+     *
+     * @return \DariusIII\ItunesApi\Entities\Album|\DariusIII\ItunesApi\Entities\EntityInterface|null
+     * @throws \DariusIII\ItunesApi\Exceptions\AlbumNotFoundException
      */
     public function fetchById($id, $country = self::DEFAULT_COUNTRY, $includeTracks = null)
     {
-        $results = $this->lookup(sprintf($includeTracks ? self::ALBUM_TRACKS_QUERY : self::ALBUM_QUERY, (int)$id, $country));
+        $results = $this->lookup(sprintf($includeTracks ? self::ALBUM_TRACKS_QUERY : self::ALBUM_QUERY, (int) $id, $country));
         if ($results === false) {
             throw new AlbumNotFoundException($id);
         }
@@ -35,8 +36,8 @@ class AlbumProvider extends AbstractProvider
         $album = null;
         $tracks = [];
 
-        foreach($results as $result) {
-            switch($result->wrapperType) {
+        foreach ($results as $result) {
+            switch ($result->wrapperType) {
                 case self::IDENTIFIER_ALBUM:
                     /** @var Album $album */
                     $album = AlbumMapper::map($result);
@@ -48,20 +49,20 @@ class AlbumProvider extends AbstractProvider
             }
         }
 
-        if ($album && !empty($tracks)) {
+        if ($album && ! empty($tracks)) {
             $album->setTracks(new Collection($tracks));
         }
 
         return $album;
     }
 
-	/**
-	 * @param string $name
-	 * @param string $country
-	 *
-	 * @return \DariusIII\ItunesApi\Utils\SearchResults
+    /**
+     * @param string $name
+     * @param string $country
+     *
+     * @return \DariusIII\ItunesApi\Utils\SearchResults
      * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
-	 */
+     */
     public function fetchByName($name, $country = self::DEFAULT_COUNTRY)
     {
         $results = $this->search(sprintf(self::ALBUM_SEARCH_QUERY, urlencode($name), $country));
@@ -70,23 +71,23 @@ class AlbumProvider extends AbstractProvider
         }
 
         $albums = [];
-        foreach($results as $result) {
+        foreach ($results as $result) {
             $albums[] = AlbumMapper::map($result);
         }
 
         return new SearchResults($albums);
     }
 
-	/**
-	 * @param string $name
-	 * @param string $country
-	 * @param null   $includeTracks
-	 *
-	 * @return \DariusIII\ItunesApi\Entities\Album|\DariusIII\ItunesApi\Entities\EntityInterface|null
-	 * @throws \DariusIII\ItunesApi\Exceptions\AlbumNotFoundException
-	 * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
-	 * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
-	 */
+    /**
+     * @param string $name
+     * @param string $country
+     * @param null   $includeTracks
+     *
+     * @return \DariusIII\ItunesApi\Entities\Album|\DariusIII\ItunesApi\Entities\EntityInterface|null
+     * @throws \DariusIII\ItunesApi\Exceptions\AlbumNotFoundException
+     * @throws \DariusIII\ItunesApi\Exceptions\InvalidEndpointException
+     * @throws \DariusIII\ItunesApi\Exceptions\SearchNoResultsException
+     */
     public function fetchOneByName($name, $country = self::DEFAULT_COUNTRY, $includeTracks = null)
     {
         /** @var Album[] $albums */

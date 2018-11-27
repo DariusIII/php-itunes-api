@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Utils;
 
 use DariusIII\ItunesApi\Entities\EntityInterface;
@@ -54,7 +55,7 @@ class Collection extends \ArrayObject implements \JsonSerializable
         while ($iterator->valid()) {
             /** @var EntityInterface $current */
             $current = $iterator->current();
-            $array[] = $current->{'get' . ucfirst($attribute)}();
+            $array[] = $current->{'get'.ucfirst($attribute)}();
 
             $iterator->next();
         }
@@ -68,21 +69,21 @@ class Collection extends \ArrayObject implements \JsonSerializable
 
     /**
      * @param string $attribute
-     * @param int $direction
+     * @param int    $direction
+     *
      * @return Collection
      */
     public function sort($attribute, $direction = SORT_ASC)
     {
-        $cmp = function($a, $b) use ($attribute, $direction) {
-            $a = $a->{'get' . ucfirst($attribute)}();
-            $b = $b->{'get' . ucfirst($attribute)}();
+        $cmp = function ($a, $b) use ($attribute, $direction) {
+            $a = $a->{'get'.ucfirst($attribute)}();
+            $b = $b->{'get'.ucfirst($attribute)}();
 
             if ($a === $b) {
                 return 0;
             }
-            return (($direction === SORT_ASC && $a < $b) || ($direction === SORT_DESC && $a > $b))
-                ? -1
-                : 1;
+
+            return (($direction === SORT_ASC && $a < $b) || ($direction === SORT_DESC && $a > $b)) ? -1 : 1;
         };
 
         $array = $this->getArrayCopy();

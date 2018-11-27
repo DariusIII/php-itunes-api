@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Entities;
 
 class Track implements EntityInterface, \JsonSerializable
@@ -42,7 +43,7 @@ class Track implements EntityInterface, \JsonSerializable
      * @var integer
      */
     private $length;
-    
+
     /**
      * @var string
      */
@@ -175,22 +176,22 @@ class Track implements EntityInterface, \JsonSerializable
     {
         $this->length = $length;
     }
-	
-	/**
-	 * @return string
-	 */
-	public function getGenre()
-	{
-		return $this->genre;
-	}
-	
-	/**
-	 * @param string $genre
-	 */
-	public function setGenre($genre)
-	{
-		$this->genre = $genre;
-	}
+
+    /**
+     * @return string
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * @param string $genre
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+    }
 
     /**
      * @return array
@@ -206,7 +207,7 @@ class Track implements EntityInterface, \JsonSerializable
             'track_number' => $this->getTrackNumber(),
             'preview' => $this->getPreview(),
             'length' => $this->getLength(),
-	        'genre' => $this->getGenre(),
+            'genre' => $this->getGenre(),
         ];
     }
 }

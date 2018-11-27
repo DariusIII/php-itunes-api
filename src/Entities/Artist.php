@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Entities;
 
 use DariusIII\ItunesApi\Utils\Collection;

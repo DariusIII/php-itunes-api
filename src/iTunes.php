@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi;
 
 use DariusIII\ItunesApi\Exceptions\InvalidProviderException;
@@ -9,6 +10,7 @@ class iTunes
 {
     /**
      * @param string $provider
+     *
      * @return ProviderInterface
      * @throws InvalidProviderException
      */

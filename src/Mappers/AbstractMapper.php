@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Mappers;
 
 use DariusIII\ItunesApi\Entities\EntityInterface;
@@ -14,11 +15,12 @@ abstract class AbstractMapper
 
     /**
      * @param $data
+     *
      * @return EntityInterface
      */
     final public static function map($data)
     {
-	    return (new static($data))->getObject();
+        return (new static($data))->getObject();
     }
 
     /**

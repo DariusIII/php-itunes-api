@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Providers;
 
 use DariusIII\ItunesApi\Exceptions\InvalidProviderException;
@@ -21,15 +22,16 @@ abstract class AbstractProvider implements ProviderInterface
 
     /**
      * @param string $provider
+     *
      * @return ProviderInterface
      * @throws InvalidProviderException
      */
     public static function factory($provider)
     {
-        if (!isset(self::$providers[$provider])) {
-            $providerClass = '\\DariusIII\\ItunesApi\\Providers\\' . ucfirst($provider) . 'Provider';
+        if (! isset(self::$providers[$provider])) {
+            $providerClass = '\\DariusIII\\ItunesApi\\Providers\\'.ucfirst($provider).'Provider';
 
-            if (!class_exists($providerClass)) {
+            if (! class_exists($providerClass)) {
                 throw new InvalidProviderException($provider);
             }
 
@@ -45,6 +47,7 @@ abstract class AbstractProvider implements ProviderInterface
 
     /**
      * @param $params
+     *
      * @return bool|mixed
      */
     protected function search($params)
@@ -54,6 +57,7 @@ abstract class AbstractProvider implements ProviderInterface
 
     /**
      * @param $params
+     *
      * @return bool|mixed
      */
     protected function lookup($params)
@@ -62,17 +66,18 @@ abstract class AbstractProvider implements ProviderInterface
     }
 
     /**
-     * @param $url
+     * @param      $url
      * @param null $params
+     *
      * @return bool|mixed
      */
     private function fetchData($url, $params = null)
     {
         if ($params) {
             if (\is_array($params)) {
-                $url .= '?' . http_build_query($params);
+                $url .= '?'.http_build_query($params);
             } elseif (\is_string($params)) {
-                $url .= '?' . $params;
+                $url .= '?'.$params;
             }
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace DariusIII\ItunesApi\Entities;
 
 use DariusIII\ItunesApi\Utils\Collection;
@@ -44,23 +45,23 @@ class Album implements EntityInterface, \JsonSerializable
      * @var Collection[]
      */
     private $tracks;
-    
-	/**
-	 * @var string
-	 */
-	private $storeUrl;
-	
-	/**
-	 * @var string
-	 */
-	private $publisher;
-	
-	/**
-	 * @var string
-	 */
-	private $genre;
-	
-	/**
+
+    /**
+     * @var string
+     */
+    private $storeUrl;
+
+    /**
+     * @var string
+     */
+    private $publisher;
+
+    /**
+     * @var string
+     */
+    private $genre;
+
+    /**
      * @return int
      */
     public function getItunesId()
@@ -171,10 +172,10 @@ class Album implements EntityInterface, \JsonSerializable
     {
         $this->releaseDate = $releaseDate;
     }
-	
-	/**
-	 * @return \DariusIII\ItunesApi\Utils\Collection[]
-	 */
+
+    /**
+     * @return \DariusIII\ItunesApi\Utils\Collection[]
+     */
     public function getTracks()
     {
         return $this->tracks;
@@ -187,54 +188,54 @@ class Album implements EntityInterface, \JsonSerializable
     {
         $this->tracks = $tracks;
     }
-	
-	/**
-	 * @return string
-	 */
-	public function getStoreUrl()
-	{
-		return $this->storeUrl;
-	}
-	
-	/**
-	 * @param $storeUrl
-	 */
-	public function setStoreUrl($storeUrl)
-	{
-		$this->storeUrl = $storeUrl;
-	}
-	
-	/**
-	 * @return string
-	 */
-	public function getPublisher()
-	{
-		return $this->publisher;
-	}
-	
-	/**
-	 * @param $publisher
-	 */
-	public function setPublisher($publisher)
-	{
-		$this->publisher = $publisher;
-	}
-	
-	/**
-	 * @return string
-	 */
-	public function getGenre()
-	{
-		return $this->genre;
-	}
-	
-	/**
-	 * @param string $genre
-	 */
-	public function setGenre($genre)
-	{
-		$this->genre = $genre;
-	}
+
+    /**
+     * @return string
+     */
+    public function getStoreUrl()
+    {
+        return $this->storeUrl;
+    }
+
+    /**
+     * @param $storeUrl
+     */
+    public function setStoreUrl($storeUrl)
+    {
+        $this->storeUrl = $storeUrl;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPublisher()
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * @param $publisher
+     */
+    public function setPublisher($publisher)
+    {
+        $this->publisher = $publisher;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * @param string $genre
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+    }
 
     /**
      * @return array
@@ -251,8 +252,8 @@ class Album implements EntityInterface, \JsonSerializable
             'tracks_count' => $this->getTracksCount(),
             'release_date' => $this->getReleaseDate()->format('Y-m-d H:i:s'),
             'tracks' => $this->getTracks(),
-	        'publisher' => $this->getPublisher(),
-	        'genre' => $this->getGenre(),
+            'publisher' => $this->getPublisher(),
+            'genre' => $this->getGenre(),
         ];
     }
 }

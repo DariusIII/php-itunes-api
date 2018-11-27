@@ -1,14 +1,15 @@
 <?php
+
 namespace DariusIII\ItunesApi\Mappers;
 
 use DariusIII\ItunesApi\Entities\Album;
 
 class AlbumMapper extends AbstractMapper
 {
-	/**
-	 * @return Album
-	 * @throws \Exception
-	 */
+    /**
+     * @return Album
+     * @throws \Exception
+     */
     protected function getObject()
     {
         $album = new Album();
