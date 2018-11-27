@@ -55,6 +55,16 @@ class Movie implements EntityInterface, \JsonSerializable
     private $genre;
 
     /**
+     * @var string
+     */
+    private $director;
+
+    /**
+     * @var string
+     */
+    private $tagLine;
+
+    /**
      * @return int
      */
     public function getItunesId()
@@ -191,6 +201,14 @@ class Movie implements EntityInterface, \JsonSerializable
     }
 
     /**
+     * @param $trailerUrl
+     */
+    public function setTrailerUrl($trailerUrl)
+    {
+        $this->trailerUrl = $trailerUrl;
+    }
+
+    /**
      * @return string
      */
     public function getGenre()
@@ -207,11 +225,35 @@ class Movie implements EntityInterface, \JsonSerializable
     }
 
     /**
-     * @param $trailerUrl
+     * @return string
      */
-    public function setTrailerUrl($trailerUrl)
+    public function getDirector()
     {
-        $this->trailerUrl = $trailerUrl;
+        return $this->director;
+    }
+
+    /**
+     * @param string $director
+     */
+    public function setDirector($director)
+    {
+        $this->director = $director;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTagLine()
+    {
+        return $this->tagLine;
+    }
+
+    /**
+     * @param string $tagLine
+     */
+    public function setTagLine($tagLine)
+    {
+        $this->tagLine = $tagLine;
     }
 
     /**
@@ -223,11 +265,13 @@ class Movie implements EntityInterface, \JsonSerializable
             'itunes_id' => $this->getItunesId(),
             'artist_id' => $this->getArtistId(),
             'name' => $this->getName(),
+            'director' => $this->getDirector(),
             'cover' => $this->getCover(),
             'store_url' => $this->getStoreUrl(),
             'trailer' => $this->getTrailerUrl(),
             'explicit' => $this->isExplicit(),
             'release_date' => $this->getReleaseDate()->format('Y-m-d H:i:s'),
+            'tag_line' => $this->getTagLine(),
             'description' => $this->getDescription(),
             'genre' => $this->getGenre(),
         ];

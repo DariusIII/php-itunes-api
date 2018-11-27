@@ -16,6 +16,7 @@ class MovieMapper extends AbstractMapper
         $movie->setItunesId($this->data->collectionId);
         $movie->setArtistId($this->data->collectionArtistId);
         $movie->setName($this->data->trackName);
+        $movie->setDirector($this->data->artistName);
 
         if (isset($this->data->artworkUrl100)) {
             $movie->setCover($this->data->artworkUrl100);
@@ -28,6 +29,7 @@ class MovieMapper extends AbstractMapper
         $movie->setExplicit($this->data->collectionExplicitness === self::IDENTIFER_EXPLICIT);
         $movie->setReleaseDate(new \DateTime($this->data->releaseDate));
         $movie->setDescription($this->data->longDescription);
+        $movie->setTagLine($this->data->shortDescription);
         $movie->setGenre($this->data->primaryGenreName);
 
         return $movie;
