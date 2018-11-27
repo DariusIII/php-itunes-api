@@ -24,6 +24,7 @@ $artistsFinder = iTunes::load('artist');
 $albumsFinder = iTunes::load('album');
 $tracksFinder = iTunes::load('track');
 $moviesFinder = iTunes::load('movie');
+$ebooksFinder = iTunes::load('ebook')
 ```
 
 #### Finders' methods
@@ -55,6 +56,13 @@ Method | Return
 `fetchById( int $id [, string $country ] )` | `Movie`
 `fetchByName( string $name [, string $country ] )` | `SearchResults`
 `fetchOneByName( int $id [, string $country ] )` | `Movie`
+
+##### Ebooks Finder
+Method | Return
+--- | ---
+`fetchById( int $id [, string $country ] )` | `Ebook`
+`fetchByName( string $name [, string $country ] )` | `SearchResults`
+`fetchOneByName( int $id [, string $country ] )` | `Ebook`
 
 #### Entities
 
@@ -102,13 +110,27 @@ trailer | string | URL to movie's trailer
 explicit | bool | -
 description | string | Movie description
 tagline | string | Movie tagline
+releaseDate | DateTime | Movie release date
 genre | string | Movie genre
+
+##### Ebook Entity
+Attribute | Type | Description
+--- | --- | ---
+itunesId | integer | -
+artistId | integer | iTunes artist's ID
+name | string | -
+author | string | Book author
+cover | string | URL to ebook cover
+storeUrl | string | URL to book's page
+description | string | Book description
+releaseDate | DateTime | Book release date
+genre | array | Boook genre
 
 
 #### Collections
 
 ##### `Collection`
-A `Collection` is an `ArrayObject` 
+A `Collection` is an `ArrayObject`
 
 ##### `SearchResults`
 A `SearchResults` is an `ArrayObject`
