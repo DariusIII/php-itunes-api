@@ -95,11 +95,13 @@ Attribute | Type | Description
 itunesId | integer | -
 artistId | integer | iTunes artist's ID
 name | string | -
+director | string | Movie director(s)
 cover | string | URL to movie's cover
 storeUrl | string | URL to movie's page
 trailer | string | URL to movie's trailer
 explicit | bool | -
 description | string | Movie description
+tagline | string | Movie tagline
 genre | string | Movie genre
 
 
