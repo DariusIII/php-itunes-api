@@ -13,8 +13,13 @@ class MovieMapper extends AbstractMapper
     protected function getObject()
     {
         $movie = new Movie();
-        $movie->setItunesId($this->data->collectionId);
-        $movie->setArtistId($this->data->collectionArtistId);
+        // Some Movies are missing collectionId and collectionArtistId from JSON response
+        if (isset($this->data->collectionId)) {
+            $movie->setItunesId($this->data->collectionId);
+        }
+        if (isset($this->data->collectionArtistId)) {
+            $movie->setArtistId($this->data->collectionArtistId);
+        }
         $movie->setName($this->data->trackName);
         $movie->setDirector($this->data->artistName);
 
