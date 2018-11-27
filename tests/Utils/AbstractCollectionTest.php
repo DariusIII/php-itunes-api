@@ -2,7 +2,7 @@
 use DariusIII\ItunesApi\Utils\Collection;
 use DariusIII\ItunesApi\Entities\Artist;
 
-abstract class AbstractCollectionTest extends PHPUnit_Framework_TestCase
+abstract class AbstractCollectionTest extends \PHPUnit\Framework\TestCase
 {
     /** @var Collection */
     protected $data = [];

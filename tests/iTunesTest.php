@@ -1,10 +1,13 @@
 <?php
 use DariusIII\ItunesApi\iTunes;
 
-class iTunesTest extends PHPUnit_Framework_TestCase
+class iTunesTest extends \PHPUnit\Framework\TestCase
 {
+    /**
+     * @throws \DariusIII\ItunesApi\Exceptions\InvalidProviderException
+     */
     public function testValidProviderLoader()
     {
-        iTunes::load('artist');
+        $this->assertInstanceOf(\DariusIII\ItunesApi\Providers\ArtistProvider::class, iTunes::load('artist'));
     }
 }

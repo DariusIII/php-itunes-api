@@ -5,11 +5,13 @@ use DariusIII\ItunesApi\Providers\AlbumProvider;
 use DariusIII\ItunesApi\Providers\ArtistProvider;
 use DariusIII\ItunesApi\Providers\ProviderInterface;
 use DariusIII\ItunesApi\Providers\AbstractProvider;
+use DariusIII\ItunesApi\Providers\MovieProvider;
+use DariusIII\ItunesApi\Providers\EbookProvider;
 
-class AbstractProviderTest extends PHPUnit_Framework_TestCase
+class AbstractProviderTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @expectedException Jacoz\ItunesApi\Exceptions\InvalidProviderException
+     * @expectedException DariusIII\ItunesApi\Exceptions\InvalidProviderException
      */
     public function testInvalidProviderLoader()
     {
@@ -33,6 +35,8 @@ class AbstractProviderTest extends PHPUnit_Framework_TestCase
             ['artist', ArtistProvider::class],
             ['album', AlbumProvider::class],
             ['track', TrackProvider::class],
+            ['movie', MovieProvider::class],
+            ['ebook', EbookProvider::class],
         ];
     }
 }

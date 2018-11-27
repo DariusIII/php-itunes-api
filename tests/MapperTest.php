@@ -8,7 +8,7 @@ use DariusIII\ItunesApi\Mappers\ArtistMapper;
 use DariusIII\ItunesApi\Mappers\AlbumMapper;
 use DariusIII\ItunesApi\Mappers\TrackMapper;
 
-class MapperTest extends PHPUnit_Framework_TestCase
+class MapperTest extends \PHPUnit\Framework\TestCase
 {
     private $data = [
         'artist' => [
