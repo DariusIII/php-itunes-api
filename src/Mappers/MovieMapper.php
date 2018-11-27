@@ -26,7 +26,11 @@ class MovieMapper extends AbstractMapper
         if (isset($this->data->artworkUrl100)) {
             $movie->setCover($this->data->artworkUrl100);
         }
-        $movie->setStoreUrl($this->data->collectionViewUrl);
+        if (isset($this->data->collectionViewUrl)) {
+            $movie->setStoreUrl($this->data->collectionViewUrl);
+        } elseif (isset($this->data->trackViewUrl)) {
+            $movie->setStoreUrl($this->data->trackViewUrl);
+        }
         if (isset($this->data->previewUrl)) {
             $movie->setTrailerUrl($this->data->previewUrl);
         }
