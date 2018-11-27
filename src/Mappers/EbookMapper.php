@@ -14,10 +14,10 @@ class EbookMapper extends AbstractMapper
     {
         $ebook = new Ebook();
         // Some Movies are missing collectionId and collectionArtistId from JSON response
-        if (isset($this->data->collectionId)) {
+        if (isset($this->data->trackId)) {
             $ebook->setItunesId($this->data->trackId);
         }
-        if (isset($this->data->collectionArtistId)) {
+        if (isset($this->data->artistId)) {
             $ebook->setArtistId($this->data->artistId);
         }
         $ebook->setName($this->data->trackName);
