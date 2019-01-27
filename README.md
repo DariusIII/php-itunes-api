@@ -92,6 +92,7 @@ itunesId | integer | -
 artistId | integer | iTunes artist's ID
 albumId | integer | iTunes album's ID
 name | string | -
+artistName | string | iTunes artist's name
 preview | string | URL to track's audio preview
 explicit | bool | -
 trackNumber | integer | -
