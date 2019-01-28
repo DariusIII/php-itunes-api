@@ -26,7 +26,7 @@ $artistsFinder = iTunes::load('artist');
 $albumsFinder = iTunes::load('album');
 $tracksFinder = iTunes::load('track');
 $moviesFinder = iTunes::load('movie');
-$ebooksFinder = iTunes::load('ebook')
+$ebooksFinder = iTunes::load('ebook');
 ```
 
 #### Finders' methods
