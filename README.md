@@ -1,6 +1,8 @@
 # PHP iTunes API
 iTunes Query System
 
+[![CircleCI](https://circleci.com/gh/DariusIII/php-itunes-api/tree/master.svg?style=svg)](https://circleci.com/gh/DariusIII/php-itunes-api/tree/master)
+
 ### Requirements:
 - PHP >= 7.2
 
