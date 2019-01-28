@@ -19,6 +19,11 @@ class Album implements EntityInterface, \JsonSerializable
     /**
      * @var string
      */
+    private $artistName;
+
+    /**
+     * @var string
+     */
     private $name;
 
     /**
@@ -86,11 +91,27 @@ class Album implements EntityInterface, \JsonSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getArtistName()
+    {
+        return $this->artistName;
+    }
+
+    /**
      * @param int $artistId
      */
     public function setArtistId($artistId)
     {
         $this->artistId = $artistId;
+    }
+
+    /**
+     * @param string $artistName
+     */
+    public function setArtistName( $artistName)
+    {
+        $this->artistName = $artistName;
     }
 
     /**
@@ -245,6 +266,7 @@ class Album implements EntityInterface, \JsonSerializable
         return [
             'itunes_id' => $this->getItunesId(),
             'artist_id' => $this->getArtistId(),
+            'artist_name' => $this->getArtistName(),
             'name' => $this->getName(),
             'cover' => $this->getCover(),
             'store_url' => $this->getStoreUrl(),

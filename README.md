@@ -78,6 +78,7 @@ Attribute | Type | Description
 --- | --- | ---
 itunesId | integer | -
 artistId | integer | iTunes artist's ID
+artistName | string | iTunes artist's Name
 name | string | -
 cover | string | URL to image
 explicit | bool | -
