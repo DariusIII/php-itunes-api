@@ -10,6 +10,8 @@ use DariusIII\ItunesApi\Mappers\TrackMapper;
 
 class MapperTest extends \PHPUnit\Framework\TestCase
 {
+    const artistName = 'Remember Sports';
+
     private $data = [
         'artist' => [
             'artistId' => 1,
@@ -18,6 +20,7 @@ class MapperTest extends \PHPUnit\Framework\TestCase
         'album' => [
             'collectionId' => 1,
             'artistId' => 2,
+            'artistName' => self::artistName,
             'collectionName' => 'Bar',
             'artworkUrl100' => 'http://www.example.com/image.jpg',
             'collectionExplicitness' => 'explicit',
@@ -43,6 +46,16 @@ class MapperTest extends \PHPUnit\Framework\TestCase
     {
         $this->assertInstanceOf($class, $obj);
         $this->assertInstanceOf(EntityInterface::class, $obj);
+    }
+
+    /**
+     * Check whether the artist name is loaded into the album.
+     */
+    public function testAlbumWithArtistName ()
+    {
+        $mapper = AlbumMapper::map($this->getDataObject('album'));
+
+        $this->assertEquals(self::artistName, $mapper->getArtistName());
     }
 
     public function getMappers()
