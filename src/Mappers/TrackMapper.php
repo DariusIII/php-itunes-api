@@ -12,7 +12,7 @@ class TrackMapper extends AbstractMapper
     protected function getObject()
     {
         $track = new Track();
-        $track->setItunesId($this->data->trackId);
+        $track->setItunesId($this->data->trackId ?? '');
         $track->setArtistId($this->data->artistId);
         $track->setArtistName($this->data->artistName);
         $track->setAlbumId($this->data->collectionId);
