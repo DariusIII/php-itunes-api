@@ -22,6 +22,9 @@ class TrackMapper extends AbstractMapper
         $track->setPreview($this->data->previewUrl ?? '');
         $track->setTrackNumber($this->data->trackNumber ?? '');
         $track->setGenre($this->data->primaryGenreName);
+        if (isset($this->data->artworkUrl100)) {
+            $track->setCover($this->data->artworkUrl100);
+        }
 
         return $track;
     }

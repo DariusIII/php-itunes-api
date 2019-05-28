@@ -55,6 +55,11 @@ class Track implements EntityInterface, \JsonSerializable
     private $genre;
 
     /**
+     * @var string
+     */
+    private $cover;
+
+    /**
      * @return int
      */
     public function getItunesId()
@@ -215,6 +220,22 @@ class Track implements EntityInterface, \JsonSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getCover()
+    {
+        return $this->cover;
+    }
+
+    /**
+     * @param string $cover
+     */
+    public function setCover($cover)
+    {
+        $this->cover = $cover;
+    }
+
+    /**
      * @return array
      */
     public function jsonSerialize()
@@ -230,6 +251,7 @@ class Track implements EntityInterface, \JsonSerializable
             'preview' => $this->getPreview(),
             'length' => $this->getLength(),
             'genre' => $this->getGenre(),
+            'cover' => $this->getCover(),
         ];
     }
 }
