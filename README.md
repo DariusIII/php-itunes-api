@@ -100,6 +100,7 @@ preview | string | URL to track's audio preview
 explicit | bool | -
 trackNumber | integer | -
 length | integer | Track's lenght in milliseconds
+cover | string| URL to track cover
 
 ##### Movie Entity
 Attribute | Type | Description
