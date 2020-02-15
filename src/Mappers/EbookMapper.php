@@ -31,8 +31,12 @@ class EbookMapper extends AbstractMapper
         }
 
         $ebook->setReleaseDate(new \DateTime($this->data->releaseDate));
-        $ebook->setDescription($this->data->description);
-        $ebook->setGenre($this->data->genres);
+        if (isset($this->data->description)) {
+            $ebook->setDescription($this->data->description);
+        }
+        if (isset($this->data->genres)) {
+            $ebook->setGenre($this->data->genres);
+        }
 
         return $ebook;
     }
