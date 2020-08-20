@@ -37,7 +37,9 @@ class MovieMapper extends AbstractMapper
 
         $movie->setExplicit($this->data->collectionExplicitness === self::IDENTIFER_EXPLICIT);
         $movie->setReleaseDate(new \DateTime($this->data->releaseDate));
+        if (isset($this->data->longDescription)) {
         $movie->setDescription($this->data->longDescription);
+        }
         if (isset($this->data->shortDescription)) {
             $movie->setTagLine($this->data->shortDescription);
         }
