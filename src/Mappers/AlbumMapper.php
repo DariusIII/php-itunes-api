@@ -29,7 +29,9 @@ class AlbumMapper extends AbstractMapper
         $album->setExplicit($this->data->collectionExplicitness === self::IDENTIFER_EXPLICIT);
         $album->setReleaseDate(new \DateTime($this->data->releaseDate));
         $album->setTracksCount($this->data->trackCount);
-        $album->setGenre($this->data->primaryGenreName);
+        if (isset($this->data->primaryGenreName)) {
+            $album->setGenre($this->data->primaryGenreName);
+        }
 
         return $album;
     }
