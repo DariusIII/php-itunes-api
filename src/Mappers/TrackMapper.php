@@ -13,9 +13,9 @@ class TrackMapper extends AbstractMapper
     {
         $track = new Track();
         $track->setItunesId($this->data->trackId ?? '');
-        $track->setArtistId($this->data->artistId);
-        $track->setArtistName($this->data->artistName);
-        $track->setAlbumId($this->data->collectionId);
+        $track->setArtistId($this->data->artistId ?? '');
+        $track->setArtistName($this->data->artistName ?? '');
+        $track->setAlbumId($this->data->collectionId ?? '');
         $track->setName($this->data->trackName ?? '');
         $track->setExplicit(! empty($this->data->trackExplicitness) ? $this->data->trackExplicitness === self::IDENTIFER_EXPLICIT : false);
         $track->setLength($this->data->trackTimeMillis ?? '');
