@@ -43,7 +43,7 @@ class MovieMapper extends AbstractMapper
         if (isset($this->data->shortDescription)) {
             $movie->setTagLine($this->data->shortDescription);
         }
-        $movie->setGenre($this->data->primaryGenreName);
+        $movie->setGenre($this->data->primaryGenreName ?? '');
 
         return $movie;
     }
